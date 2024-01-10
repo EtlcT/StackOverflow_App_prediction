@@ -14,12 +14,10 @@ def predict():
     pass
     try:
         data = request.args.get('title')
-        print(data)
         model = run.TextPredictionModel.from_artefacts('../../train/data/artefacts/2024-01-09-15-35-30/')
         predictions = model.predict(data)
         return jsonify({"predicted tags" : predictions})
     except Exception as e:
-        print('ok')
         return jsonify({"error": str(e)})
 
 
